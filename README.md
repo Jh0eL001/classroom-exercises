@@ -12,4 +12,4 @@ Este espacio de trabajo contiene el siguiente folder por defecto:
 
 - [`Contador de Vocales`](./src/ContadorVocales.java): Metodo recursivo para contar las vocales en una cadena.
 
-- [`Busqueda Secuencial Recursiva`](./src/ContadorVocales.java): Metodo recursivo para buscar algun elemento en una coleccion.
+- [`Busqueda Secuencial Recursiva`](./src/BuscadorSecuencial.java): Metodo recursivo para buscar algun elemento en una coleccion de forma `secuencial` o `lineal`.
