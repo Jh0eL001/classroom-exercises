@@ -64,8 +64,7 @@ public class BuscadorSecuencial<T> {
 		// Mostrar resultado
 		if (encontrado) {
 			System.out.println("La lista generada es: " + numeros);
-			System.out.println("El número " + numeroBuscado + " fue encontrado en la lista en la posición: "
-					+ numeros.indexOf(numeroBuscado));
+			System.out.println("El número " + numeroBuscado + " fue encontrado en la lista.");
 		} else {
 			System.out.println("La lista generada es: " + numeros);
 			System.out.println("El número " + numeroBuscado + " no está en la lista.");
