@@ -10,6 +10,8 @@ Este espacio de trabajo contiene el siguiente folder por defecto:
 
 ## Ejercicios Recursivos
 
+- [`Fibonacci`](./src/Fibonacci.java): Metodo recursivo para imprimir la secuencia de los numeros de Fibonacci.
+
 - [`Contador de Vocales`](./src/ContadorVocales.java): Metodo recursivo para contar las vocales en una cadena.
 
 - [`Busqueda Secuencial Recursiva`](./src/BuscadorSecuencial.java): Metodo recursivo para buscar algun elemento en una coleccion de forma `secuencial` o `lineal`.
