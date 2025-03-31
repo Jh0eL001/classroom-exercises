@@ -14,6 +14,7 @@ import java.util.Random;
 /**
  * Clase genérica que implementa el algoritmo de búsqueda binaria recursiva.
  * Funciona para cualquier tipo de colección que implemente Comparable.
+ * la coleccion debe de estar ordenada.
  * 
  * @param <T> Tipo de dato genérico que debe ser comparable.
  */
@@ -82,12 +83,15 @@ public class BuscadorBinario<T extends Comparable<T>> {
     // Generar un número aleatorio
     Random random = new Random();
     int numeroBuscado = random.nextInt(10) + 1;
-    int elementosDeseados = 20;
+    int elementosDeseados = 10;
     // Crear una lista de números
     ArrayList<Integer> numeros = new ArrayList<>();
     for (int i = 0; i < elementosDeseados; i++) {
-      numeros.add(random.nextInt(11));
+      numeros.add(random.nextInt(10) + 1);
     }
+    // Ordenar la lista antes de realizar la búsqueda
+    numeros.sort(Integer::compareTo);
+
     // Crear un objeto de BuscadorBinario para enteros
     BuscadorBinario<Integer> buscador = new BuscadorBinario<>();
 
@@ -97,8 +101,7 @@ public class BuscadorBinario<T extends Comparable<T>> {
     // Mostrar resultado
     if (encontrado) {
       System.out.println("La lista generada es: " + numeros);
-      System.out.println("El número " + numeroBuscado + " fue encontrado en la lista en la posición: "
-          + numeros.indexOf(numeroBuscado));
+      System.out.println("El número " + numeroBuscado + " fue encontrado en la lista.");
     } else {
       System.out.println("La lista generada es: " + numeros);
       System.out.println("El número " + numeroBuscado + " no está en la lista.");
