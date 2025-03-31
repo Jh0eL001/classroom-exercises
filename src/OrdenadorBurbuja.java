@@ -76,22 +76,22 @@ public class OrdenadorBurbuja<T extends Comparable<T>> {
 
   public static void main(String[] args) {
     ArrayList<Integer> numeros = new ArrayList<>(Arrays.asList(5, 3, 8, 1, 2, 7, 9, 4, 6, 0));
-    ArrayList<Character> letras = new ArrayList<>(Arrays.asList('B', 'C', 'F', 'A', 'a'));
-    ArrayList<String> cadena = new ArrayList<>(Arrays.asList("zorro", "manzana", "perro", "gato", "elefante"));
-    System.out.println("Lista antes de ordenar: " + numeros);
+    // ArrayList<Character> letras = new ArrayList<>(Arrays.asList('B', 'C', 'F', 'A', 'a'));
+    // ArrayList<String> cadena = new ArrayList<>(Arrays.asList("zorro", "manzana", "perro", "gato", "elefante"));
+    System.out.println("Lista antes de ordenar:   " + numeros);
 
     OrdenadorBurbuja<Integer> ordenador = new OrdenadorBurbuja<>();
     ordenador.bubbleSort(numeros);
-    System.out.println("Lista ordenada: " + numeros);
+    System.out.println("Lista despues de ordenar: " + numeros);
 
-    OrdenadorBurbuja<Character> ordenadorLetras = new OrdenadorBurbuja<>();
-    ordenadorLetras.bubbleSort(letras);
-    System.out.println("Lista ordenada: " + letras);
+    // OrdenadorBurbuja<Character> ordenadorLetras = new OrdenadorBurbuja<>();
+    // ordenadorLetras.bubbleSort(letras);
+    // System.out.println("Lista ordenada: " + letras);
 
-    System.out.println("Lista antes de ordenar: " + cadena);
+    // System.out.println("Lista antes de ordenar: " + cadena);
 
-    OrdenadorBurbuja<String> ordenadorCadenas = new OrdenadorBurbuja<>();
-    ordenadorCadenas.bubbleSort(cadena);
-    System.out.println("Lista ordenada: " + cadena);
+    // OrdenadorBurbuja<String> ordenadorCadenas = new OrdenadorBurbuja<>();
+    // ordenadorCadenas.bubbleSort(cadena);
+    // System.out.println("Lista ordenada: " + cadena);
   }
 }

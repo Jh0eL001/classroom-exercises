@@ -1,4 +1,5 @@
 /*
+ * https://youtu.be/5Z9dn2WTg9o
  * 2025-03-27.
  * Ordenador de colecciones usando el algoritmo de Merge Sort
  * PR| ordenarMS(col, n) = dividir(col, n, col1, col2)      | n > 1
@@ -12,69 +13,69 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * @param T ordenador para cualquier tipo comparable
+ */
 public class OrdenadorMerge<T extends Comparable<T>> {
+	/**
+	 * Ordenar una coleccion de forma recursiva
+	 * 
+	 * @param lista coleccion tipo Comparable T
+	 */
+	public void ordenar(ArrayList<T> lista) {
+		// Caso Base: si la lista tiene cero o un elemento, ya esta ordenada
+		if (lista.size() <= 1) {
+			return;
+		}
 
-	public void ordenarMS(ArrayList<T> lista) {
-		ordenarMS(lista, lista.size(), 0);
+		// Dividir la lista en dos mitades.
+		int mid = lista.size() / 2;
+		ArrayList<T> izquierda = new ArrayList<>(lista.subList(0, mid));
+		ArrayList<T> derecha = new ArrayList<>(lista.subList(mid, lista.size()));
+
+		// Ordenar recursivamente cada mitad
+		ordenar(derecha);
+		ordenar(izquierda);
+
+		// Combinamos las mitades ordenadas recursivamente (Merge part)
+		lista.clear();
+		combinar(izquierda, derecha, lista);
 	}
 
-	private void ordenarMS(ArrayList<T> lista, int size, int k) {
-		// Caso Base: Si la lista tiene 1 o menos elementos, no es necesario ordenar.
-		if (size <= 1) {
+	/**
+	 * Combinar los elementos ordenados de manera recursiva (Merge Sort)
+	 * 
+	 * @param izquierda el lado izquierdo de la coleccion
+	 * @param derecha   el lado izquierdo de la coleccion
+	 * @param resultado la nueva lista combinada con izq, der
+	 */
+	private void combinar(ArrayList<T> izquierda, ArrayList<T> derecha, ArrayList<T> resultado) {
+		// Caso Base
+		if (izquierda.isEmpty()) {
+			resultado.addAll(derecha);
 			return;
+		}
+		if (derecha.isEmpty()) {
+			resultado.addAll(izquierda);
+			return;
+		}
+
+		// Si no estan vacias, comparar los primeros elementos de cada lista
+		if (izquierda.get(0).compareTo(derecha.get(0)) <= 0) {
+			resultado.add(izquierda.remove(0));
 		} else {
-			// Dividimos la lista en dos sublistas
-			int mid = size / 2;
-			ArrayList<T> left = new ArrayList<>(lista.subList(0, mid));
-			ArrayList<T> right = new ArrayList<>(lista.subList(mid, size));
-
-			// Llamada recursiva para las dos sublistas
-			ordenarMS(left);
-			ordenarMS(right);
-
-			// Fusionamos las dos sublistas de forma recursiva
-			mergeRecursivo(left, right, lista, k);
-		}
-	}
-
-	private void mergeRecursivo(ArrayList<T> left, ArrayList<T> right, ArrayList<T> lista, int k) {
-		// Caso base: Si left está vacío, copiar los elementos de right en la lista
-		if (left.isEmpty()) {
-			// Si 'left' está vacío, copiamos 'right' a 'lista' recursivamente
-			if (!right.isEmpty()) {
-				lista.set(k, right.get(0));
-				mergeRecursivo(left, new ArrayList<>(right.subList(1, right.size())), lista, k + 1);
-			}
-			return;
+			resultado.add(derecha.remove(0));
 		}
 
-		// Caso base: Si right está vacío, copiar los elementos de left en la lista
-		if (right.isEmpty()) {
-			// Si 'right' está vacío, copiamos 'left' a 'lista' recursivamente
-			if (!left.isEmpty()) {
-				lista.set(k, left.get(0));
-				mergeRecursivo(new ArrayList<>(left.subList(1, left.size())), right, lista, k + 1);
-			}
-			return;
-		}
-
-		// Comparar los primeros elementos de left y right
-		if (left.get(0).compareTo(right.get(0)) <= 0) {
-			lista.set(k, left.get(0)); // Insertar el menor en 'lista'
-			// Llamar recursivamente con el resto de los elementos
-			mergeRecursivo(new ArrayList<>(left.subList(1, left.size())), right, lista, k + 1);
-		} else {
-			lista.set(k, right.get(0)); // Insertar el menor en 'lista'
-			// Llamar recursivamente con el resto de los elementos
-			mergeRecursivo(left, new ArrayList<>(right.subList(1, right.size())), lista, k + 1);
-		}
+		// Llamada recursiva con los elementos restantes
+		combinar(izquierda, derecha, resultado);
 	}
 
 	public static void main(String[] args) {
 		ArrayList<Integer> numeros = new ArrayList<>(Arrays.asList(3, 2, 5, 0, 1, 8, 7, 6, 9, 4));
 		OrdenadorMerge<Integer> ordenador = new OrdenadorMerge<>();
 		System.out.println("Lista antes de ordenar: " + numeros);
-		ordenador.ordenarMS(numeros);
+		ordenador.ordenar(numeros);
 		System.out.println("Lista ordenada: " + numeros);
 	}
 }
