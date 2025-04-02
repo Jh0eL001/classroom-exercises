@@ -21,3 +21,5 @@ Este espacio de trabajo contiene el siguiente folder por defecto:
 - [`OrdenadorBurbuja`](./src/OrdenadorBurbuja.java): Ordenador de colecciones usando el algoritmo de ordenacion Bubble Sort.
 
 - [`OrdenadorMerge`](./src/OrdenadorMerge.java): Ordenador de colecciones usando el algoritmo de ordenacion Merge Sort.
+
+- [`Conjunto Clausura`](./src/ConjuntoClausura.java): Como calcular el conjunto potencia de un conjunto, basicamente el conjunto de todos sus subconjuntos.
